@@ -7,4 +7,5 @@ import com.foreach.barapp.barapp.models.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+    Customer findByEmail(String email);
 }

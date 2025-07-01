@@ -12,16 +12,35 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "customer")
+@Table(name = "Customer")
 public class Customer {
     @Id
-    @Column(name = "customer_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customer_id;
+    @Column(name = "Customer_ID")
+    private Long customerId;
+
+    @Column(name = "Name", nullable = false)
     private String name;
-    private String first_name;
+
+    @Column(name = "First_Name", nullable = false)
+    private String firstName;
+
+    @Column(name = "Role", nullable = false)
     private String role;
+
+    @Column(name = "Email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "Password", nullable = false)
     private String password;
-  
+
+    // Getters et setters
+    public Long getId() { return customerId; }
+    public void setId(Long id) { this.customerId = id; }
+
+    public String getUsername() { return email; }
+    public void setUsername(String username) { this.email = username; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 }
