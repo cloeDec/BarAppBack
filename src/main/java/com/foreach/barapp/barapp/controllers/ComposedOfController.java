@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.foreach.barapp.barapp.models.Cocktail;
-import com.foreach.barapp.barapp.services.CocktailService;
+import com.foreach.barapp.barapp.models.ComposedOf;
+import com.foreach.barapp.barapp.services.ComposedOfService;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
-@RequestMapping("/cocktails")
-public class CocktailController {
+@RequestMapping("/composedof")
+public class ComposedOfController {
     @Autowired
-    private CocktailService cocktailService;
+    private ComposedOfService composedOfService;
 
     @GetMapping
-    public List<Cocktail> getCocktails() {
-        return cocktailService.getAllCocktails();
+    public List<ComposedOf> getComposedOf() {
+        return composedOfService.getAllComposedOf();
     }
 }

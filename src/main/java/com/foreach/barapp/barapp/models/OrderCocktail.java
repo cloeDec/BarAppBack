@@ -1,4 +1,5 @@
 package com.foreach.barapp.barapp.models;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,12 +12,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "cocktail_size_price")
-public class CocktailPrice {
+@Table(name = "order_cocktail")
+public class OrderCocktail {
     @Id
-    @Column(name = "price_size_id", nullable = false)
+    @Column(name = "order_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer price_size_id;
-    private String size;
-    private String price;
+    private Integer order_id;
+    private String order_date;
+    private String order_status;
+    private String customer_id;
+    private String ingredient_id;
+    private String ingredient_name;
 }

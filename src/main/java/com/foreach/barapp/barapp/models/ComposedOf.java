@@ -11,12 +11,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "cocktail_size_price")
-public class CocktailPrice {
+@Table(name = "composed_of")
+public class ComposedOf {
     @Id
-    @Column(name = "price_size_id", nullable = false)
+    @Column(name = "composed_of", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer price_size_id;
-    private String size;
-    private String price;
+    private Integer composed_of;
+    private String ingredient_id;
+    private String quantity;
 }
