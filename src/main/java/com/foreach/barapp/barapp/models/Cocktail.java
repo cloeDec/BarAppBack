@@ -19,7 +19,7 @@ public class Cocktail {
     private Integer cocktail_id;
     private String cocktail_name;
     private String description;
- //   private String image_url;
+    private String image_url;
 }
 
 

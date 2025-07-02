@@ -17,10 +17,11 @@ public class JwtUtil {
     private static final String SECRET_KEY = "mySuperSecretKeyThatIsAtLeastSixtyFourCharactersLongAndRandom1234567890";
     private final long EXPIRATION_TIME = 86400000;
 
-    public String generateToken(String email) {
+    public String generateToken(String email, String role) {
         Key key = new SecretKeySpec(SECRET_KEY.getBytes(StandardCharsets.UTF_8), SignatureAlgorithm.HS512.getJcaName());
         return Jwts.builder()
                 .setSubject(email)
+                .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key, SignatureAlgorithm.HS512)
@@ -38,6 +39,11 @@ public class JwtUtil {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public String extractRole(String token) {
+        Claims claims = getClaims(token);
+        return claims.get("role", String.class);
     }
 
     private Claims getClaims(String token) {
