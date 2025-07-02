@@ -24,6 +24,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody Map<String, String> user) {
+        System.out.println("Tentative de login reçue !");
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
