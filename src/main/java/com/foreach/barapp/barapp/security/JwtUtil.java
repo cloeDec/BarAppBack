@@ -15,7 +15,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtUtil {
     private static final String SECRET_KEY = "mySuperSecretKeyThatIsAtLeastSixtyFourCharactersLongAndRandom1234567890";
-    private final long EXPIRATION_TIME = 86400000; // 1 jour en ms
+    private final long EXPIRATION_TIME = 86400000;
 
     public String generateToken(String email) {
         Key key = new SecretKeySpec(SECRET_KEY.getBytes(StandardCharsets.UTF_8), SignatureAlgorithm.HS512.getJcaName());
