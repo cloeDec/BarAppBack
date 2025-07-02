@@ -42,8 +42,9 @@ public class JwtUtil {
 
     private Claims getClaims(String token) {
         Key key = new SecretKeySpec(SECRET_KEY.getBytes(StandardCharsets.UTF_8), SignatureAlgorithm.HS512.getJcaName());
-        return Jwts.parser()
+        return Jwts.parserBuilder()
                 .setSigningKey(key)
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
