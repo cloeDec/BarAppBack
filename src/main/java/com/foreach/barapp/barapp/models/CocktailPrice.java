@@ -19,4 +19,5 @@ public class CocktailPrice {
     private Integer price_size_id;
     private String size;
     private String price;
+    private Integer cocktail_id;
 }

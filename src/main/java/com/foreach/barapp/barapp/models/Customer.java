@@ -34,7 +34,6 @@ public class Customer {
     @Column(name = "Password", nullable = false)
     private String password;
 
-    // Getters et setters
     public Long getId() { return customerId; }
     public void setId(Long id) { this.customerId = id; }
 

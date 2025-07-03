@@ -17,6 +17,7 @@ public class ComposedOf {
     @Column(name = "composed_of", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer composed_of;
+    private Integer cocktail_id;
     private String ingredient_id;
     private String quantity;
 }
