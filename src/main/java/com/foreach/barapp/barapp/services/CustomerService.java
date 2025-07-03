@@ -1,6 +1,7 @@
 package com.foreach.barapp.barapp.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,15 +18,19 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
-    public Customer getCustomerById(int id) {
-        return customerRepository.findById(id).get();
+    public Optional<Customer> getCustomerById(int id) {
+        return customerRepository.findById(id);
     }
 
-    public Customer saveCustomer(Customer Customer) {
-        return customerRepository.save(Customer);
+    public Customer saveCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(int id) {
-        customerRepository.deleteById(id);
+    public boolean deleteCustomer(int id) {
+        if (customerRepository.existsById(id)) {
+            customerRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

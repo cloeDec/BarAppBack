@@ -1,8 +1,9 @@
 package com.foreach.barapp.barapp.services;
 
-import java.util.Collections;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,10 +27,12 @@ public class CustomerDetailsService implements UserDetailsService {
         if (customer == null) {
             throw new UsernameNotFoundException("Utilisateur non trouvé avec l'email : " + email);
         }
+        String role = customer.getRole();
+        List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role));
         return new User(
             customer.getEmail(),
             customer.getPassword(),
-            Collections.emptyList() // Tu peux ajouter les rôles ici si besoin
+            authorities
         );
     }
 }

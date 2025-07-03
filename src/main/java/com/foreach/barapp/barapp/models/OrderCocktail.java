@@ -21,6 +21,4 @@ public class OrderCocktail {
     private String order_date;
     private String order_status;
     private String customer_id;
-    private String ingredient_id;
-    private String ingredient_name;
 }
