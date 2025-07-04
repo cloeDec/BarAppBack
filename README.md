@@ -21,7 +21,7 @@
 ### Sous Windows
 
 ```sh
-mvnw.cmd spring-boot:run
+mvn spring-boot:run
 ```
 
 Le backend sera accessible par défaut sur :
