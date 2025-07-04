@@ -24,33 +24,11 @@
 mvnw.cmd spring-boot:run
 ```
 
-### Sous Linux/Mac
-
-```sh
-./mvnw spring-boot:run
-```
-
 Le backend sera accessible par défaut sur :
 
 ```
 http://localhost:8080
 ```
-
-## Lancer les tests unitaires
-
-### Sous Windows
-
-```sh
-mvnw.cmd test
-```
-
-### Sous Linux/Mac
-
-```sh
-./mvnw test
-```
-
-Les résultats des tests s'afficheront dans la console.
 
 ## Structure du projet
 
